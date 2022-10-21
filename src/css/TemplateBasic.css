@@ -1,0 +1,17 @@
+.buttonShow {
+    width: 100%;
+    background-color: #ef3937;
+    border: #ef3937;
+    color: white;
+}
+
+.buttonShow:hover {
+    width: 100%;
+    background-color: #d42422;
+    color: white;
+}
+
+.modal {
+    /* z-index: 999; */
+    background-color: rgba(0,0,0,0.90);
+}
