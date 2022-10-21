@@ -18,7 +18,6 @@ function GeojsonPolygonPrueba3() {
         });
 
         map.on('load', () => {
-            // Add a data source containing GeoJSON data.
             map.addSource('maine', {
                 'type': 'geojson',
                 'data': {

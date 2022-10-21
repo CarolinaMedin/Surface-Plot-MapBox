@@ -7,106 +7,94 @@ import SurfacePlot2 from '../SurfacePlot2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFyaWpvc2UyOSIsImEiOiJja3NybHFjb2QwbmxkMnZwNzl5cW5rcXZyIn0.OYc1AggBupUnzQlWlzDXRw';
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2FyaXRvNyIsImEiOiJjbDh0YThqdTIwNWpwM3ZwbmN4ZHI5MmUyIn0.YSVnpB21m6v0Qrevr_xqVw'
 
 function TemplatePolygon3() {
 
     const node = useRef(null);
-
+    
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
     useEffect(() => {
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/satellite-v8', // style URL
-            center: [-69.2473779, -22.808651], // starting position
-            zoom: 12 // starting zoom
+        const map = new mapboxgl.Map({ 
+            /* offset: [0, -15], */
+            container: 'map',
+            style: 'mapbox://styles/carito7/cl9ha2oat003h15nvo0o4sp1a',
+            center: [-69.261980827293442, -22.812123941135098], 
+            zoom: 13 
         });
-
 
         map.on('load', () => {
             map.addSource('maine', {
                 'type': 'geojson',
                 'data': {
-                    'type': 'Feature',
-                    'geometry': {
-                        'type': 'Polygon',
-                        // These coordinates outline Maine.
-                        'coordinates': [
-                            [
-                                [-69.261980827293442, -22.812123941135098],
-                                [-69.258232023667375, -22.811295717078181],
-                                [-69.251867775651036, -22.834180855493084],
-                                [-69.255921714455965, -22.835444986948385],
-                                [-69.256008895935651, -22.83553216842806],
-                                [-69.256488394073855, -22.834485990671951],
-                                [-69.256488394073111, -22.834485990671970],//cordenadas agregadas por mi 
-                                [-69.256488394073100, -22.834485990671960],
-                                [-69.256488394073095, -22.834485990671950],
-                                [-69.256488394073070, -22.834485990671940],
-                                [-69.256488394073050, -22.834485990671930],
-                                [-69.256488394073040, -22.834485990671920],
-                                [-69.256488394073030, -22.834485990671910],
-                                [-69.256488394073010, -22.834485990671890],
-                                [-69.256488394073001, -22.834485990671850],
-                            ]
-                        ]
-                    }
-                }
-            });
+                    "type": "FeatureCollection", "features": [{
+                        "type": "Feature", "properties": { "name": "Pila 1", "title":"Título", "description": "Monitoreo un lindo proceso de Lixiviación" }, "geometry": {
+                            "type": "Polygon",
+                            'coordinates': [
+                                [
+                                    [-69.261980827293442, -22.812123941135098],
+                                    [-69.258232023667375, -22.811295717078181],
+                                    [-69.251867775651036, -22.834180855493084],
+                                    [-69.255921714455965, -22.835444986948385],
+                                    [-69.256008895935651, -22.83553216842806],
+                                    [-69.256488394073855, -22.834485990671951],
+                                    [-69.256488394073111, -22.834485990671970],//cordenadas agregadas por mi 
+                                    [-69.256488394073100, -22.834485990671960],
+                                    [-69.256488394073095, -22.834485990671950],
+                                    [-69.256488394073070, -22.834485990671940],
+                                    [-69.256488394073050, -22.834485990671930],
+                                    [-69.256488394073040, -22.834485990671920],
+                                    [-69.256488394073030, -22.834485990671910],
+                                    [-69.256488394073010, -22.834485990671890],
+                                    [-69.256488394073001, -22.834485990671850],
+                                ]
+                            ] }}]}});
 
-            map.addLayer({
-                'id': 'maine',
-                'type': 'fill',
-                'source': 'maine', // reference the data source
-                'layout': {},
-                'paint': {
-                    'fill-color': '#ac1',
-                    'line-width': 5,
-                }
-            });
-            // Add a black outline around the polygon.
-            map.addLayer({
-                'id': 'outline',
-                'type': 'line',
-                'source': 'maine',
-                'layout': {},
-                'paint': {
-                    'line-color': '#ac1d81',
-                    'line-width': 5,
-                    'fill-color': 'rgba(200, 100, 240, 0.4)',
-                    'fill-outline-color': 'rgba(200, 100, 240, 1)'
-                }
-            })
+        map.addLayer({
+            'id': 'maine',
+            'type': 'fill',
+            'source': 'maine', 
+            'layout': {},
+            'paint': {
+                'fill-color': 'rgba(200, 100, 240, 0.4)',
+                'fill-outline-color': 'rgba(200, 100, 240, 1)',
+                'fill-opacity': 1
+            }
+        });
+        // Add a black outline around the polygon.
+        map.addLayer({
+            'id': 'outline',
+            'type': 'line',
+            'source': 'maine',
+            'layout': {},
+            'paint': {
+                'line-color': '#ac1d81',
+                'line-width': 4
+            }
         })
 
-
-        /* map.on('click', 'outline', (e) => {
-            const [modal, setModal] = useState(false);
-            const toggle = () => setModal(!modal);
-        });  */
-
-        map.on('click', 'maine', (e) => {
+          map.on('click', 'maine', (e) => {
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(e.features[0].properties.name)
+                .setHTML(e.features[0].properties.message)
+                .setHTML(
+                    `<h3>${e.features[0].properties.title} hola hola</h3><p>${e.features[0].properties.description}</p><Modal> isOpen={modal} toggle={toggle} soy una modal ${e.features[0].properties.modal}</Modal>`
+                  )
                 .addTo(map);
         })
-
-        // Change the cursor to a pointer when
-        // the mouse is over the states layer.
+  
         map.on('mouseenter', 'maine', (e) => {
             map.getCanvas().style.cursor = 'pointer';
         })
 
-        // Change the cursor back to a pointer
-        // when it leaves the states layer.
         map.on('mouseleave', 'maine', (e) => {
             map.getCanvas().style.cursor = '';
         })
     })
-
+});
 
 
     return (
@@ -142,7 +130,6 @@ function TemplatePolygon3() {
             >
                 <Row>
                     <Col className="bg-light border">
-                        hola
                     </Col>
                 </Row>
             </Container>

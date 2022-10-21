@@ -14,9 +14,10 @@ import TestPlot from './TestPlot'; */
 /* import ModalPlot from './ModalPlot'; */
 /* import { Flex } from '@chakra-ui/react' */
 /* import TemplatePolygon from './ComponentesPruebas/TemplatePolygon'; */
+import TemplatePolygon3 from './ComponentesFinal/TemplatePolygon3';
 /* import GeojsonPolygonPrueba from './ComponentesPruebas/GeojsonPolygonPrueba'; */
 /* import GeojsonPolygonPrueba2 from './ComponentesPruebas/GeojsonPolygonPrueba2'; */
-import GeojsonPolygonPrueba3 from './ComponentesFinal/GeojsonPolygonPrueba3';
+/* import GeojsonPolygonPrueba3 from './ComponentesFinal/GeojsonPolygonPrueba3'; */
 /* import GeojsonPolygonPrueba0 from './ComponentesFinal/GeojsonPolygonPrueba0'; */
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
       {/* <TemplatePolygon/> */}
       {/* <GeojsonPolygonPrueba/> */}
       {/* <GeojsonPolygonPrueba2/> */}
-      <GeojsonPolygonPrueba3/>
+      <TemplatePolygon3/>
+      {/* <GeojsonPolygonPrueba3/> */}
       {/* <GeojsonPolygonPrueba0/> */}
     </div>
   );
