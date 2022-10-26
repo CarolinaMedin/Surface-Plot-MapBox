@@ -6,7 +6,8 @@ import TestPlot from './TestPlot'; */
 /* import SurfacePlot2 from './SurfacePlot2'; */
 /* import RibbonPlot from './RibbonPlot'; */
 /* import TemplateBasic from './TemplateBasic'; */
-/* import MapboxTest from './MapboxTest'; */
+/* import DatePickerComponent from './DatePickerComponent'; */
+/* import SurfacePlotBasic from './SurfacePlotBasic'; */
 /* import MapboxTest2 from './MapboxTest2'; */
 /* import GeojsonTest from './GeojsonTest'; */
 /* import GeojsonPolygon from './GeojsonPolygon'; */
@@ -29,7 +30,8 @@ function App() {
       {/* <SurfacePlot2/> */}
       {/* <RibbonPlot/> */}
       {/* <TemplateBasic/> */}
-      {/* <MapboxTest/> */}
+      {/* <DatePickerComponent/> */}
+      {/* <SurfacePlotBasic/> */}
       {/* <MapboxTest2/> */}
       {/* <GeojsonPolygon/> */}
       {/* <GeojsonPolygon2/> */}

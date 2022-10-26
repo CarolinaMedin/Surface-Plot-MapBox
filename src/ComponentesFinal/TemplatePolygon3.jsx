@@ -4,6 +4,7 @@ import mapboxgl from 'mapbox-gl';
 import { Badge, Container, Row, Col } from 'reactstrap';
 
 import SurfacePlot2 from '../SurfacePlot2';
+import DatePickerComponent from '../DatePickerComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 
@@ -81,7 +82,7 @@ function TemplatePolygon3() {
                 .setHTML(e.features[0].properties.name)
                 .setHTML(e.features[0].properties.message)
                 .setHTML(
-                    `<h3>${e.features[0].properties.title} hola hola</h3><p>${e.features[0].properties.description}</p><Modal> isOpen={modal} toggle={toggle} soy una modal ${e.features[0].properties.modal}</Modal>`
+                    `<h3>${e.features[0].properties.title} hola hola</h3><p>${e.features[0].properties.description}</p>`
                   )
                 .addTo(map);
         })
@@ -119,6 +120,7 @@ function TemplatePolygon3() {
                     GeoJson Pilas Centinela 2
                 </Badge>
             </h4>
+            {/* mapa poligono */}
             <Container
                 className="bg-light border"
                 fluid
@@ -127,6 +129,7 @@ function TemplatePolygon3() {
                     width: '100%',
                     height: '620px',
                 }}
+                onClick={toggle}
             >
                 <Row>
                     <Col className="bg-light border">
@@ -141,6 +144,7 @@ function TemplatePolygon3() {
                 }}
             >
                 <Col sm={{ size: 2, offset: 5 }}>
+                <DatePickerComponent/>
                     <Button
                         onClick={toggle}
                         style={{
@@ -176,7 +180,7 @@ function TemplatePolygon3() {
                             <SurfacePlot2 />
                         </ModalBody>
                         <ModalFooter>
-                            <Button onClick={toggle}
+                            {/* <Button onClick={toggle}
                                 style={{
                                     backgroundColor: '#ef3937',
                                     color: 'white',
@@ -184,7 +188,7 @@ function TemplatePolygon3() {
                                 }}
                             >
                                 Aceptar
-                            </Button>{' '}
+                            </Button> */}{' '}
                             <Button color="secondary" onClick={toggle}>
                                 Cerrar
                             </Button>
