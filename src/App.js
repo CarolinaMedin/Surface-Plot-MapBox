@@ -1,8 +1,8 @@
 
 import './App.css';
 /* import SurfacePlot from './SurfacePlot'; */
-/* import TestButton from './TestButton';
-import TestPlot from './TestPlot'; */
+ /* import TestButton from './TestButton'; */
+/*import TestPlot from './TestPlot'; */
 /* import SurfacePlot2 from './SurfacePlot2'; */
 /* import RibbonPlot from './RibbonPlot'; */
 /* import TemplateBasic from './TemplateBasic'; */
@@ -15,7 +15,9 @@ import TestPlot from './TestPlot'; */
 /* import ModalPlot from './ModalPlot'; */
 /* import { Flex } from '@chakra-ui/react' */
 /* import TemplatePolygon from './ComponentesPruebas/TemplatePolygon'; */
+
 import TemplatePolygon3 from './ComponentesFinal/TemplatePolygon3';
+
 /* import GeojsonPolygonPrueba from './ComponentesPruebas/GeojsonPolygonPrueba'; */
 /* import GeojsonPolygonPrueba2 from './ComponentesPruebas/GeojsonPolygonPrueba2'; */
 /* import GeojsonPolygonPrueba3 from './ComponentesFinal/GeojsonPolygonPrueba3'; */
@@ -24,8 +26,8 @@ import TemplatePolygon3 from './ComponentesFinal/TemplatePolygon3';
 function App() {
   return (
     <div className='app' display="flex-block"  justifyContent="center" flexDirection='colum'  flexGrow={1}> 
-      {/* <TestButton/>
-      <TestPlot/> */}
+      {/* <TestButton/> */}
+      {/*<TestPlot/> */}
       {/* <SurfacePlot/> */}
       {/* <SurfacePlot2/> */}
       {/* <RibbonPlot/> */}
@@ -40,7 +42,9 @@ function App() {
       {/* <TemplatePolygon/> */}
       {/* <GeojsonPolygonPrueba/> */}
       {/* <GeojsonPolygonPrueba2/> */}
+
       <TemplatePolygon3/>
+
       {/* <GeojsonPolygonPrueba3/> */}
       {/* <GeojsonPolygonPrueba0/> */}
     </div>

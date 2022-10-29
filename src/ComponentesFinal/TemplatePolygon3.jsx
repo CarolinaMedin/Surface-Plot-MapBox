@@ -8,6 +8,7 @@ import DatePickerComponent from '../DatePickerComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FyaXRvNyIsImEiOiJjbDh0YThqdTIwNWpwM3ZwbmN4ZHI5MmUyIn0.YSVnpB21m6v0Qrevr_xqVw'
 
 function TemplatePolygon3() {
@@ -145,7 +146,7 @@ function TemplatePolygon3() {
             >
                 <Col sm={{ size: 2, offset: 5 }}>
                 <DatePickerComponent/>
-                    <Button
+                    {/* <Button
                         onClick={toggle}
                         style={{
                             width: '100%',
@@ -155,7 +156,7 @@ function TemplatePolygon3() {
                         }}
                     >
                         Ver Gráfico
-                    </Button>
+                    </Button> */}
                     <Modal isOpen={modal} toggle={toggle} size="xl" className='modal'
                         style={{
                             display: 'flex',
