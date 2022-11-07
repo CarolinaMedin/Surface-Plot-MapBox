@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl';
 import { Badge, Container, Row, Col } from 'reactstrap';
 
 import SurfacePlot2 from '../SurfacePlot2';
-import DatePickerComponent from '../DatePickerComponent';
+import DatePickerHighlights from '../DatePickerHighlights';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 
@@ -145,7 +145,8 @@ function TemplatePolygon3() {
                 }}
             >
                 <Col sm={{ size: 2, offset: 5 }}>
-                <DatePickerComponent/>
+                
+                <DatePickerHighlights/>
                     {/* <Button
                         onClick={toggle}
                         style={{

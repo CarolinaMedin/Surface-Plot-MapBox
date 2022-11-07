@@ -23,6 +23,8 @@ import TemplatePolygon3 from './ComponentesFinal/TemplatePolygon3';
 /* import GeojsonPolygonPrueba3 from './ComponentesFinal/GeojsonPolygonPrueba3'; */
 /* import GeojsonPolygonPrueba0 from './ComponentesFinal/GeojsonPolygonPrueba0'; */
 
+/* import DatePickerHighlights from './DatePickerHighlights'; */
+
 function App() {
   return (
     <div className='app' display="flex-block"  justifyContent="center" flexDirection='colum'  flexGrow={1}> 
@@ -47,6 +49,8 @@ function App() {
 
       {/* <GeojsonPolygonPrueba3/> */}
       {/* <GeojsonPolygonPrueba0/> */}
+
+      {/* <DatePickerHighlights/> */}
     </div>
   );
 }
