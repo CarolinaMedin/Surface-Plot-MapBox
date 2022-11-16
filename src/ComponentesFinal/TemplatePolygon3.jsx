@@ -7,6 +7,8 @@ import DatePickerHighlights from '../DatePickerHighlights';
 import Menu from '../Menu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import MenuIcon from '@mui/icons-material/Menu';
+import HamburgerMenu from '../HamburgerMenu';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FyaXRvNyIsImEiOiJjbDh0YThqdTIwNWpwM3ZwbmN4ZHI5MmUyIn0.YSVnpB21m6v0Qrevr_xqVw'
@@ -42,15 +44,7 @@ function TemplatePolygon3() {
                                     [-69.255921714455965, -22.835444986948385],
                                     [-69.256008895935651, -22.83553216842806],
                                     [-69.256488394073855, -22.834485990671951],
-                                    [-69.256488394073111, -22.834485990671970],//cordenadas agregadas por mi 
-                                    [-69.256488394073100, -22.834485990671960],
-                                    [-69.256488394073095, -22.834485990671950],
-                                    [-69.256488394073070, -22.834485990671940],
-                                    [-69.256488394073050, -22.834485990671930],
-                                    [-69.256488394073040, -22.834485990671920],
-                                    [-69.256488394073030, -22.834485990671910],
-                                    [-69.256488394073010, -22.834485990671890],
-                                    [-69.256488394073001, -22.834485990671850],
+                                    [-69.256488394073111, -22.834485990671970]
                                 ]
                             ]
                         }
@@ -112,7 +106,7 @@ function TemplatePolygon3() {
                 backgroundColor: 'rgba(0,0,0,0.90)',
             }}
         >
-            <h4 style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+            <h4 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
                 {' '}
                 <Badge>
                     GeoJson Pilas Centinela 2
@@ -122,9 +116,9 @@ function TemplatePolygon3() {
             <div style={{ display: 'flex', maxWidth: "100%", bgcolor: "black", color: "white" }}>
                 <Menu style={{
                     height: '620px',
-                    backgroundColor: "black !important "
+                    backgroundColor: "black !important"
                 }} />
-                
+
                 {/* mapa poligono */}
                 <Container
                     className="bg-light border"
@@ -133,11 +127,67 @@ function TemplatePolygon3() {
                     style={{
                         width: '80%',
                         height: '620px',
+                        /* position: 'absolute', */
+                        zIndex: 1,
+                        justifyContent: 'flex-end',
                     }}
                     onClick={toggle}
                 >
+                    {/* <div
+                        onClick={toggle}
+                        style={{
+                            width: '3%',
+                            height: '5%',
+                            backgroundColor: 'rgba(250, 0, 0, 0.5)',
+                            color: 'white',
+                            boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
+                            borderRadius: 7,
+                            marginTop: 20,
+                            position: 'absolute',
+                            zIndex: 2,
+                            display: 'flex',
+                            justifyContent: 'center'
+                        }}>
+                        <MenuIcon style={{
+                    fontSize: 30
+                }} />
+                    </div> */}
                     <Row>
-                        <Col className="bg-light border">
+                        <Col className="bg-light border" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'stretch' }}>
+                            <div
+                                onClick={toggle}
+                                style={{
+                                    width: '3%',
+                                    height: '5%',
+                                    backgroundColor: 'rgba(250, 0, 0, 0.5)',
+                                    color: 'white',
+                                    boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
+                                    borderRadius: 7,
+                                    marginTop: 0,
+                                    position: 'absolute',
+                                    zIndex: 2,
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                }}>
+                                <MenuIcon style={{
+                                    fontSize: 30
+                                }} />
+
+                                <div>
+                                    <HamburgerMenu style={{
+                                        backgroundColor: 'rgba(250, 0, 0, 0.5)',
+                                        color: 'white',
+                                        boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
+                                        borderRadius: 7,
+                                        position: 'absolute',
+                                        zIndex: 2,
+                                        display: 'flex',
+                                        marginTop: 50,
+                                    }} />                                    
+                                    <MenuIcon style={{
+                                        fontSize: 30
+                                    }} /> </div>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
@@ -146,7 +196,8 @@ function TemplatePolygon3() {
             <Row
                 style={{
                     marginTop: '10px',
-                    color: 'transparent'
+                    color: 'transparent',
+                    height: "100% !important" // completar el background black
                 }}
             >
                 <Col sm={{ size: 2, offset: 5 }}>
@@ -165,7 +216,7 @@ function TemplatePolygon3() {
                         style={{
                             display: 'flex',
                             textAlign: 'center',
-                            overflowY: 'hidden',
+                            overflowY: 'hidden'
                         }}
                     >
                         <ModalHeader
