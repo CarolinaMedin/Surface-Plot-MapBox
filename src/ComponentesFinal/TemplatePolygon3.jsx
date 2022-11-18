@@ -33,22 +33,43 @@ function TemplatePolygon3() {
             map.addSource('maine', {
                 'type': 'geojson',
                 'data': {
-                    "type": "FeatureCollection", "features": [{
-                        "type": "Feature", "properties": { "name": "Pila 1", "title": "Título", "description": "Monitoreo un lindo proceso de Lixiviación" }, "geometry": {
-                            "type": "Polygon",
-                            'coordinates': [
-                                [
-                                    [-69.261980827293442, -22.812123941135098],
-                                    [-69.258232023667375, -22.811295717078181],
-                                    [-69.251867775651036, -22.834180855493084],
-                                    [-69.255921714455965, -22.835444986948385],
-                                    [-69.256008895935651, -22.83553216842806],
-                                    [-69.256488394073855, -22.834485990671951],
-                                    [-69.256488394073111, -22.834485990671970]
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Pila 1", "title": "Pila 2", "description": "Monitoreo un lindo proceso de Lixiviación" },
+                            "geometry": {
+                                "type": "Polygon",
+                                'coordinates': [
+                                    [
+                                        [-69.261980827293442, -22.812123941135098],
+                                        [-69.258232023667375, -22.811295717078181],
+                                        [-69.251867775651036, -22.834180855493084],
+                                        [-69.255921714455965, -22.835444986948385],
+                                        [-69.256008895935651, -22.83553216842806],
+                                        [-69.256488394073855, -22.834485990671951],
+                                        [-69.256488394073111, -22.834485990671970]
+                                    ]
                                 ]
-                            ]
-                        }
-                    }]
+                            }
+                        },
+                        {
+                            'type': 'Feature',
+                            "properties": { "name": "Pila 2", "title": "Pila 2", "description": "Monitoreo un lindo proceso de Lixiviación pila 2" },
+                            'geometry': {
+                                'type': 'Polygon',
+                                'coordinates': [[
+                                    [-69.26937, -22.79850],
+                                    [-69.26665, -22.79819],
+                                    [-69.26547, -22.80195],
+                                    [-69.26445, -22.80492],
+                                    [-69.26682, -22.80586],
+                                    [-69.26801, -22.80242],
+                                    [-69.26971, -22.79772],
+                                ]]
+                            }
+                        },
+                    ]
                 }
             });
 
@@ -60,20 +81,35 @@ function TemplatePolygon3() {
                 'paint': {
                     'fill-color': 'rgba(200, 100, 240, 0.4)',
                     'fill-outline-color': 'rgba(200, 100, 240, 1)',
-                    'fill-opacity': 1
-                }
+                    'fill-opacity': 0.7
+                },
+                'filter': ['==', '$type', 'Polygon']
             });
-            // Add a black outline around the polygon.
+
             map.addLayer({
+                'id': 'maine1',
+                'type': 'fill',
+                'source': 'maine',
+                'layout': {},
+                'paint': {
+                    'fill-color': 'rgba(2, 100, 240, 1)',
+                    'fill-outline-color': 'rgba(3, 100, 250, 0.5)',
+                    'fill-opacity': 0.5
+                },
+                'filter': ['==', '$type', 'Polygon']
+            });
+
+            // Add a color outline around the polygon.
+            /* map.addLayer({
                 'id': 'outline',
                 'type': 'line',
                 'source': 'maine',
                 'layout': {},
                 'paint': {
                     'line-color': '#ac1d81',
-                    'line-width': 4
+                    'line-width': 2
                 }
-            })
+            }) */
 
             map.on('click', 'maine', (e) => {
                 new mapboxgl.Popup()
@@ -93,6 +129,26 @@ function TemplatePolygon3() {
             map.on('mouseleave', 'maine', (e) => {
                 map.getCanvas().style.cursor = '';
             })
+
+            //segundo poligono
+            /* map.on('click', 'maine1', (e) => {
+                new mapboxgl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(e.features[0].properties.name)
+                    .setHTML(e.features[0].properties.message)
+                    .setHTML(
+                        `<h3>${e.features[0].properties.title} hola hola</h3><p>${e.features[0].properties.description}</p>`
+                    )
+                    .addTo(map);
+            })
+
+            map.on('mouseenter', 'maine1', (e) => {
+                map.getCanvas().style.cursor = 'pointer';
+            })
+
+            map.on('mouseleave', 'maine1', (e) => {
+                map.getCanvas().style.cursor = '';
+            }) */
         })
     });
 
@@ -126,35 +182,49 @@ function TemplatePolygon3() {
                     id="map" ref={node}
                     style={{
                         width: '80%',
-                        height: '620px',
-                        /* position: 'absolute', */
+                        /* height: '620px', */
+                        height: '80vh',
+                        display: 'flex',
+                        /* fontSize: '100 vh',
+                        position: 'end', */
                         zIndex: 1,
                         justifyContent: 'flex-end',
                     }}
                     onClick={toggle}
                 >
-                    {/* <div
-                        onClick={toggle}
-                        style={{
-                            width: '3%',
-                            height: '5%',
-                            backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                            color: 'white',
-                            boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                            borderRadius: 7,
-                            marginTop: 20,
-                            position: 'absolute',
-                            zIndex: 2,
-                            display: 'flex',
-                            justifyContent: 'center'
-                        }}>
-                        <MenuIcon style={{
-                    fontSize: 30
-                }} />
-                    </div> */}
+                    
+                    <div style={{
+                        width: '3%',
+                        height: '5%',
+                        backgroundColor: 'rgba(250, 0, 0, 0.5)',
+                        color: 'white',
+                        boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
+                        borderRadius: 7,
+                        marginTop: 20,
+                        position: 'absolute',
+                        zIndex: 3,
+                        display: 'flex',
+                        justifyContent: 'center',
+
+                    }}>
+                        <HamburgerMenu style={{
+                            fontSize: 50
+                        }} />
+                        <MenuIcon style={{ fontSize: 30 }} />
+                    </div>
                     <Row>
                         <Col className="bg-light border" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'stretch' }}>
-                            <div
+                            {/* <div style={{
+                                backgroundColor: 'rgba(250, 0, 0, 0.5)',
+                                color: 'white',
+                                boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
+                                borderRadius: 7,
+                                position: 'absolute',
+                                zIndex: 2,
+                                display: 'flex',
+                                marginTop: 50,
+                            }}>
+                                <div
                                 onClick={toggle}
                                 style={{
                                     width: '3%',
@@ -172,7 +242,7 @@ function TemplatePolygon3() {
                                 <MenuIcon style={{
                                     fontSize: 30
                                 }} />
-
+                            </div>
                                 <div>
                                     <HamburgerMenu style={{
                                         backgroundColor: 'rgba(250, 0, 0, 0.5)',
@@ -183,11 +253,13 @@ function TemplatePolygon3() {
                                         zIndex: 2,
                                         display: 'flex',
                                         marginTop: 50,
-                                    }} />                                    
+                                    }} />
                                     <MenuIcon style={{
                                         fontSize: 30
-                                    }} /> </div>
-                            </div>
+                                    }} />
+                                    <DatePickerHighlights />
+                                </div>
+                            </div> */}
                         </Col>
                     </Row>
                 </Container>
@@ -206,7 +278,7 @@ function TemplatePolygon3() {
                         onClick={toggle}
                         style={{
                             width: '100%',
-                            backgroundColor: '#ef3937',
+                            backgroundColor: '#ef3',
                             color: 'white',
                             boxShadow: '2px 3px rgba(0, 0, 0, 1)',
                         }}>
@@ -216,7 +288,8 @@ function TemplatePolygon3() {
                         style={{
                             display: 'flex',
                             textAlign: 'center',
-                            overflowY: 'hidden'
+                            overflowY: 'hidden',
+                            height: '85vh'
                         }}
                     >
                         <ModalHeader

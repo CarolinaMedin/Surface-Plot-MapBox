@@ -7,13 +7,17 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
+import { styled, useTheme } from '@mui/material/styles';
+
 import DatePickerHighlights from './DatePickerHighlights';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 import './Menu.css'; 
 
 function HamburgerMenu() {
 
     const [open, setOpen] = useState(false);
+    const theme = useTheme();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -23,7 +27,16 @@ function HamburgerMenu() {
         setOpen(false);
     };
 
-    const drawerWidth = 100;
+    const drawerWidth = 300;
+
+    const DrawerHeader = styled('div')(({ theme }) => ({
+        display: 'flex',
+        alignItems: 'center',
+        padding: theme.spacing(0, 1),
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-end',
+      }));
 
       return (
         <Paper
@@ -59,10 +72,16 @@ function HamburgerMenu() {
                     }}
                     variant="persistent"
                     anchor="left"
-                    open={open}
+                    open={open} 
                 >
+                    <DrawerHeader style={{  maxWidth: "100%", backgroundColor: 'black', color: "white", width: 300 }}>
+                        <IconButton onClick={handleDrawerClose} style={{ backgroundColor: 'white !important', color: "white" }}>
+                            {theme.direction === 'ltr' ? <ArrowBackIosNewIcon style={{ fontSize: "medium" }} /> : <MenuIcon />}
+                        </IconButton>
+                    </DrawerHeader>
                     
-                    <DatePickerHighlights />
+                    
+                    <DatePickerHighlights style={{  marginLeft: '20%' }} />
                 </Drawer>
             </MenuList>
         </Paper>

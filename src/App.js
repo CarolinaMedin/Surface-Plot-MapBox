@@ -24,6 +24,7 @@ import TemplatePolygon3 from './ComponentesFinal/TemplatePolygon3';
 /* import GeojsonPolygonPrueba0 from './ComponentesFinal/GeojsonPolygonPrueba0'; */
 
 /* import DatePickerHighlights from './DatePickerHighlights'; */
+/* import HamburgerMenu from './HamburgerMenu'; */
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
       {/* <GeojsonPolygonPrueba2/> */}
 
       <TemplatePolygon3/>
+
+      {/* <HamburgerMenu/> */}
 
       {/* <GeojsonPolygonPrueba3/> */}
       {/* <GeojsonPolygonPrueba0/> */}

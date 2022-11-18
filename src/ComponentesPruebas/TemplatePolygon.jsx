@@ -4,10 +4,9 @@ import mapboxgl from 'mapbox-gl';
 import { Badge, Container, Row, Col } from 'reactstrap';
 import SurfacePlot2 from '../SurfacePlot2';
 import DatePickerHighlights from '../DatePickerHighlights';
-import MenuMaster from '../MenuMaster';
+import Menu from '../Menu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
-import GeojsonPolygonPrueba2 from './GeojsonPolygonPrueba2';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFyaWpvc2UyOSIsImEiOiJja3NybHFjb2QwbmxkMnZwNzl5cW5rcXZyIn0.OYc1AggBupUnzQlWlzDXRw';
 
@@ -31,8 +30,14 @@ function TemplatePolygon() {
             map.addSource('maine', {
                 'type': 'geojson',
                 'data': {
-                    "type": "FeatureCollection", "features": [{
-                        "type": "Feature", "properties": { "name": "Pila 1", "title": "Título", "description": "Monitoreo un lindo proceso de Lixiviación" }, "geometry": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Pila 1", "title": "Título",
+                            "description": "Monitoreo un lindo proceso de Lixiviación"
+                        },
+                        "geometry": {
                             "type": "Polygon",
                             'coordinates': [
                                 [
@@ -43,12 +48,6 @@ function TemplatePolygon() {
                                     [-69.256008895935651, -22.83553216842806],
                                     [-69.256488394073855, -22.834485990671951],
                                     [-69.256488394073111, -22.834485990671970]
-                                ],
-                                [
-                                    [-69.268725, -22.798259],
-                                    [- 69.266622, -22.797710],
-                                    [- 69.266942, -22.804659],
-                                    [- 69.264838, -22.804248],
                                 ]
                             ]
                         }
@@ -112,12 +111,12 @@ function TemplatePolygon() {
             <h4 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
                 {' '}
                 <Badge>
-                    GeoJson Pilas Centinela 2
+                    GeoJson Pilas Centinela 1
                 </Badge>
             </h4>
 
             <div style={{ display: 'flex', maxWidth: "100%", bgcolor: "black", color: "white" }}>
-                <MenuMaster style={{
+                <Menu style={{
                     height: '620px',
                     backgroundColor: "black !important "
                 }} />
@@ -130,8 +129,11 @@ function TemplatePolygon() {
                     style={{
                         width: '80%',
                         height: '620px',
+                        zIndex: 1,
+                        justifyContent: 'flex-end',
                     }}
                     onClick={toggle}
+
                 >
                     <Row>
                         <Col className="bg-light border">
@@ -143,12 +145,13 @@ function TemplatePolygon() {
             <Row
                 style={{
                     marginTop: '10px',
-                    color: 'transparent'
+                    color: 'transparent',
+                    height: "100% !important"
                 }}
             >
                 <Col sm={{ size: 2, offset: 5 }}>
                     <DatePickerHighlights />
-                    <GeojsonPolygonPrueba2/>
+                    {/*  <GeojsonPolygonPrueba2/> */}
                     {/* <Button
                         onClick={toggle}
                         style={{
