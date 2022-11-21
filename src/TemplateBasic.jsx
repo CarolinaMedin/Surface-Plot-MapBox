@@ -25,12 +25,6 @@ const TemplateBasic = () => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
-    /* const closeBtn = (
-        <button className="close" onClick={toggle} type="button">
-            &times;
-        </button>
-    ); */
-
     return (
         <div
             style={{

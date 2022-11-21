@@ -1,0 +1,18 @@
+.DayPicker-Day--birthday {
+    background-color: #42B373 !important;
+    color: white;
+  }
+  .DayPicker-Day--birth {
+    background-color: #42B373 !important;
+    color: white;
+  }
+  .DayPicker-Day--birth1 {
+    background-color: #42B373 !important;
+    color: white;
+  }
+  .DayPicker-Day--monday {
+    color: #00bcd4;
+  }
+  .DayPicker-Day--tuesday {
+    color: #ff884b;
+  }
