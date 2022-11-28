@@ -21,6 +21,25 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 `npm install --save mapbox-gl`
 
+`npm install @mui/material @emotion/react @emotion/styled`
+
+`npm install react-datepicker --save`
+
+`npm install reactstrap react react-dom`
+
+`npm install --save bootstrap`
+
+`npm install @mui/icons-material`
+
+ Importar el componente de icono con un tema que no sea el predeterminado@mui/icons-material/Deleteicono 
+
+El tema relleno (predeterminado) se exporta como @mui/icons-material/Delete,
+El tema delineado se exporta como @mui/icons-material/DeleteOutlined,
+El tema redondeado se exporta como @mui/icons-material/DeleteRounded,
+El tema Twotone se exporta como @mui/icons-material/DeleteTwoTone,
+El tema de Sharp se exporta como @mui/icons-material/DeleteSharp.
+
+
 **Opcional solo si da problemas la importacion de mapbox-gl: npm i --save-dev @types/mapbox-gl**
 
 

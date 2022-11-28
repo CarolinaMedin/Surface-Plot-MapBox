@@ -1,28 +1,48 @@
 import React, { useEffect, useRef, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
-import { Badge, Container, Row, Col } from 'reactstrap';
+import { Badge, Container } from 'reactstrap';
 import SurfacePlot2 from '../SurfacePlot2';
-import DatePickerHighlights from '../DatePickerHighlights';
+/* import DatePickerHighlights from '../DatePickerHighlights'; */
 import Menu from '../Menu';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import MenuIcon from '@mui/icons-material/Menu';
-import HamburgerMenu from '../HamburgerMenu';
+/* import HamburgerMenu from '../HamburgerMenu'; */
+import HamburgerMenu2 from '../HamburgerMenu2';
+import Backdrop from '@mui/material/Backdrop';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FyaXRvNyIsImEiOiJjbDh0YThqdTIwNWpwM3ZwbmN4ZHI5MmUyIn0.YSVnpB21m6v0Qrevr_xqVw'
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '60%',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    height: "100% !important"
+};
 
 function TemplatePolygon3() {
 
     const node = useRef(null);
 
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
 
     useEffect(() => {
         const map = new mapboxgl.Map({
-            /* offset: [0, -15], */
             container: 'map',
             style: 'mapbox://styles/carito7/cl9ha2oat003h15nvo0o4sp1a',
             center: [-69.261980827293442, -22.812123941135098],
@@ -73,21 +93,9 @@ function TemplatePolygon3() {
                 }
             });
 
-            map.addLayer({
-                'id': 'maine',
-                'type': 'fill',
-                'source': 'maine',
-                'layout': {},
-                'paint': {
-                    'fill-color': 'rgba(200, 100, 240, 0.4)',
-                    'fill-outline-color': 'rgba(200, 100, 240, 1)',
-                    'fill-opacity': 0.7
-                },
-                'filter': ['==', '$type', 'Polygon']
-            });
 
             map.addLayer({
-                'id': 'maine1',
+                'id': 'maine',
                 'type': 'fill',
                 'source': 'maine',
                 'layout': {},
@@ -99,17 +107,6 @@ function TemplatePolygon3() {
                 'filter': ['==', '$type', 'Polygon']
             });
 
-            // Add a color outline around the polygon.
-            /* map.addLayer({
-                'id': 'outline',
-                'type': 'line',
-                'source': 'maine',
-                'layout': {},
-                'paint': {
-                    'line-color': '#ac1d81',
-                    'line-width': 2
-                }
-            }) */
 
             map.on('click', 'maine', (e) => {
                 new mapboxgl.Popup()
@@ -117,7 +114,8 @@ function TemplatePolygon3() {
                     .setHTML(e.features[0].properties.name)
                     .setHTML(e.features[0].properties.message)
                     .setHTML(
-                        `<h3>${e.features[0].properties.title} hola hola</h3><p>${e.features[0].properties.description}</p>`
+                        `<h3>${e.features[0].properties.title} hola hola</h3><p>${e.features[0].properties.description}</p> 
+                        isOpen={Modal} toggle={toggle} <Modal>${e.features[0].properties.modal} </Modal>`
                     )
                     .addTo(map);
             })
@@ -169,11 +167,12 @@ function TemplatePolygon3() {
                 </Badge>
             </h4>
 
-            <div style={{ display: 'flex', maxWidth: "100%", bgcolor: "black", color: "white" }}>
-                <Menu style={{
+            <Menu style={{
                     height: '620px',
                     backgroundColor: "black !important"
                 }} />
+
+            <div style={{ display: 'flex', maxWidth: "100%", bgcolor: "black", color: "white" }}>
 
                 {/* mapa poligono */}
                 <Container
@@ -182,150 +181,80 @@ function TemplatePolygon3() {
                     id="map" ref={node}
                     style={{
                         width: '80%',
-                        /* height: '620px', */
                         height: '80vh',
                         display: 'flex',
-                        /* fontSize: '100 vh',
-                        position: 'end', */
                         zIndex: 1,
                         justifyContent: 'flex-end',
                     }}
-                    onClick={toggle}
+                    onClick={handleOpen}
                 >
-                    
-                    <div style={{
-                        width: '3%',
-                        height: '5%',
-                        backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                        color: 'white',
-                        boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                        borderRadius: 7,
-                        marginTop: 20,
-                        position: 'absolute',
-                        zIndex: 3,
-                        display: 'flex',
-                        justifyContent: 'center',
 
-                    }}>
-                        <HamburgerMenu style={{
-                            fontSize: 50
+                    <div
+                        style={{
+                            width: '3%',
+                            height: '5%',
+                            backgroundColor: 'rgba(250, 0, 0, 0.5)',
+                            color: 'white',
+                            boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
+                            borderRadius: 7,
+                            marginTop: 20,
+                            position: 'absolute',
+                            zIndex: 3,
+                            display: 'flex',
+                            justifyContent: 'center',
+                        }}>
+                        <HamburgerMenu2 style={{
+                            fontSize: 50,
                         }} />
                         <MenuIcon style={{ fontSize: 30 }} />
                     </div>
-                    <Row>
-                        <Col className="bg-light border" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'stretch' }}>
-                            {/* <div style={{
-                                backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                                color: 'white',
-                                boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                                borderRadius: 7,
-                                position: 'absolute',
-                                zIndex: 2,
-                                display: 'flex',
-                                marginTop: 50,
-                            }}>
-                                <div
-                                onClick={toggle}
-                                style={{
-                                    width: '3%',
-                                    height: '5%',
-                                    backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                                    color: 'white',
-                                    boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                                    borderRadius: 7,
-                                    marginTop: 0,
-                                    position: 'absolute',
-                                    zIndex: 2,
-                                    display: 'flex',
-                                    justifyContent: 'center'
-                                }}>
-                                <MenuIcon style={{
-                                    fontSize: 30
-                                }} />
-                            </div>
-                                <div>
-                                    <HamburgerMenu style={{
-                                        backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                                        color: 'white',
-                                        boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                                        borderRadius: 7,
-                                        position: 'absolute',
-                                        zIndex: 2,
-                                        display: 'flex',
-                                        marginTop: 50,
-                                    }} />
-                                    <MenuIcon style={{
-                                        fontSize: 30
-                                    }} />
-                                    <DatePickerHighlights />
-                                </div>
-                            </div> */}
-                        </Col>
-                    </Row>
+
                 </Container>
             </div>
 
-            <Row
-                style={{
-                    marginTop: '10px',
-                    color: 'transparent',
-                    height: "100% !important" // completar el background black
-                }}
-            >
-                <Col sm={{ size: 2, offset: 5 }}>
-                    <DatePickerHighlights />
-                    {/* <Button
-                        onClick={toggle}
-                        style={{
-                            width: '100%',
-                            backgroundColor: '#ef3',
-                            color: 'white',
-                            boxShadow: '2px 3px rgba(0, 0, 0, 1)',
-                        }}>
-                        Ver Gráfico
-                    </Button> */}
-                    <Modal isOpen={modal} toggle={toggle} size="xl" className='modal'
-                        style={{
-                            display: 'flex',
-                            textAlign: 'center',
-                            overflowY: 'hidden',
-                            height: '85vh'
-                        }}
-                    >
-                        <ModalHeader
-                            toggle={toggle}
-                            /* close={closeBtn} */
-                            close={false}
-                            style={{
+            {/* Modal */}
+            <div>
+                <Button onClick={handleOpen}>Open modal</Button>
+                <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                        timeout: 500,
+                    }}
+                >
+                    <Fade in={open} style={{
+                        display: 'block',
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                    }}>
+                        <Box sx={style} >
+                            <Typography id="transition-modal-title" variant="h6" component="h2" style={{
                                 display: 'flex',
                                 textAlign: 'center',
                                 justifyContent: 'center',
-                            }}
-                        >
-                            Gráfico de Superficie Pilas
-                        </ModalHeader>
-                        <ModalBody>
-                            {/* <MapboxTest/> */}
-                            <SurfacePlot2 />
-                        </ModalBody>
-                        <ModalFooter>
-                            {/* <Button onClick={toggle}
-                                style={{
-                                    backgroundColor: '#ef3937',
-                                    color: 'white',
-                                    boxShadow: '2px 3px rgba(0, 0, 0, 1)',
-                                }}
-                            >
-                                Aceptar
-                            </Button> */}{' '}
-                            <Button color="secondary" onClick={toggle}>
-                                Cerrar
-                            </Button>
-                        </ModalFooter>
-                    </Modal>
-                </Col>
-            </Row>
+                            }}>
+                                Gráfico de Superficie Pilas
+                            </Typography>
+                            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                                <SurfacePlot2 />
+                            </Typography>
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                            }}>
+                                <Button color="secondary" onClick={handleClose}>
+                                    Cerrar
+                                </Button>
+                            </div>
 
+                        </Box>
+                    </Fade>
+                </Modal>
+            </div>
         </div>
     )
 }

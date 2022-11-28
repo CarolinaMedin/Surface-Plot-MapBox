@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-/* import Divider from "@mui/material/Divider"; */
 import Paper from "@mui/material/Paper";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
-/* import ListItemIcon from "@mui/material/ListItemIcon"; */
 import Typography from "@mui/material/Typography";
-/* import ContentCopy from "@mui/icons-material/ContentCopy"; */
-/* import ContentPaste from "@mui/icons-material/ContentPaste";
-import Cloud from "@mui/icons-material/Cloud"; */
 import BarChartIcon from "@mui/icons-material/BarChart";
 import CottageOutlinedIcon from "@mui/icons-material/CottageOutlined";
-/* import SvgIcon from "@mui/material/SvgIcon"; */
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -26,17 +20,19 @@ import PersonIcon from '@mui/icons-material/Person';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import './Menu.css'; 
+import Box from "@mui/material/Box";
 
 function Menu() {
 
     const [open, setOpen] = useState(false);
+
     const theme = useTheme();
 
-    const handleDrawerOpen = () => {
+    const menuOpen = () => {
         setOpen(true);
     };
 
-    const handleDrawerClose = () => {
+    const menuClose = () => {
         setOpen(false);
     };
 
@@ -53,7 +49,7 @@ function Menu() {
 
     return (
         
-        <Paper
+        <Box
             elevation={10}
             style={{ display: 'flex', maxWidth: 0, backgroundColor: '#0111', color: "white", width: 0 }} 
         >
@@ -65,7 +61,7 @@ function Menu() {
                             <IconButton
                                 color="inherit"
                                 aria-label="open drawer"
-                                onClick={handleDrawerOpen}
+                                onClick={menuOpen}
                                 edge="start"
                                 sx={{ mr: 2, ...(open && { display: 'none' }) }}
                             >
@@ -76,11 +72,6 @@ function Menu() {
                             </Typography>
                         </Toolbar>
                     </AppBar>
-
-                    {/* <ListItemText style={{ textAlign: 'start' }}>PILAS</ListItemText>
-                    <Typography variant="body2" color="white">
-                        <MenuIcon />
-                    </Typography> */}
                 </MenuItem>
 
                 <Drawer 
@@ -98,7 +89,7 @@ function Menu() {
                 >
                     
                     <DrawerHeader style={{  maxWidth: "100%", backgroundColor: 'black', color: "white", width: 300 }}>
-                        <IconButton onClick={handleDrawerClose} style={{ backgroundColor: 'white !important', color: "white" }}>
+                        <IconButton onClick={menuClose} style={{ backgroundColor: 'white !important', color: "white" }}>
                             {theme.direction === 'ltr' ? <ArrowBackIosNewIcon style={{ fontSize: "medium" }} /> : <MenuIcon />}
                         </IconButton>
                     </DrawerHeader>
@@ -143,7 +134,7 @@ function Menu() {
                     </List>
                 </Drawer>
             </MenuList>
-        </Paper>
+        </Box>
     )
 }
 
