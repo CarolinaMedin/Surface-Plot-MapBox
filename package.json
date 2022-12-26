@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^2.3.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
@@ -20,9 +19,7 @@
     "plotly.js": "^2.14.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.8.0",
-    "react-day-picker": "^8.3.5",
     "react-dom": "^18.2.0",
-    "react-multi-date-picker": "^3.3.4",
     "react-papaparse": "^4.1.0",
     "react-plotly.js": "^2.6.0",
     "react-scripts": "5.0.1",

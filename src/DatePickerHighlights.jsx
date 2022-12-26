@@ -10,7 +10,7 @@ registerLocale("es", es);
 function DatePickerHighlights() {
 
     useEffect(() => {
-        document.title = 'Pilas'
+        document.title = 'Menu'
     });
 
      const [date, setDate] = useState(new Date());

@@ -191,52 +191,7 @@ function TemplatePolygon3() {
                     </div>
                     <Row>
                         <Col className="bg-light border" style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'stretch' }}>
-                            {/* <div style={{
-                                backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                                color: 'white',
-                                boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                                borderRadius: 7,
-                                position: 'absolute',
-                                zIndex: 2,
-                                display: 'flex',
-                                marginTop: 50,
-                            }}>
-                                <div
-                                onClick={toggle}
-                                style={{
-                                    width: '3%',
-                                    height: '5%',
-                                    backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                                    color: 'white',
-                                    boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                                    borderRadius: 7,
-                                    marginTop: 0,
-                                    position: 'absolute',
-                                    zIndex: 2,
-                                    display: 'flex',
-                                    justifyContent: 'center'
-                                }}>
-                                <MenuIcon style={{
-                                    fontSize: 30
-                                }} />
-                            </div>
-                                <div>
-                                    <HamburgerMenu style={{
-                                        backgroundColor: 'rgba(250, 0, 0, 0.5)',
-                                        color: 'white',
-                                        boxShadow: '2px 3px rgba(250, 0, 0, 0.5)',
-                                        borderRadius: 7,
-                                        position: 'absolute',
-                                        zIndex: 2,
-                                        display: 'flex',
-                                        marginTop: 50,
-                                    }} />
-                                    <MenuIcon style={{
-                                        fontSize: 30
-                                    }} />
-                                    <DatePickerHighlights />
-                                </div>
-                            </div> */}
+                            
                         </Col>
                     </Row>
                 </Container>
@@ -251,16 +206,7 @@ function TemplatePolygon3() {
             >
                 <Col sm={{ size: 2, offset: 5 }}>
                     <DatePickerHighlights />
-                    {/* <Button
-                        onClick={toggle}
-                        style={{
-                            width: '100%',
-                            backgroundColor: '#ef3',
-                            color: 'white',
-                            boxShadow: '2px 3px rgba(0, 0, 0, 1)',
-                        }}>
-                        Ver Gráfico
-                    </Button> */}
+                    
                     <Modal isOpen={modal} toggle={toggle} size="xl" className='modal'
                         style={{
                             display: 'flex',

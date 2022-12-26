@@ -20,17 +20,19 @@ import PersonIcon from '@mui/icons-material/Person';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import './Menu.css'; 
+import Box from "@mui/material/Box";
 
 function Menu() {
 
     const [open, setOpen] = useState(false);
+
     const theme = useTheme();
 
-    const handleDrawerOpen = () => {
+    const menuOpen = () => {
         setOpen(true);
     };
 
-    const handleDrawerClose = () => {
+    const menuClose = () => {
         setOpen(false);
     };
 
@@ -46,7 +48,7 @@ function Menu() {
 
     return (
         
-        <Paper
+        <Box
             elevation={10}
             style={{ display: 'flex', maxWidth: 0, backgroundColor: '#0111', color: "white", width: 0 }} 
         >
@@ -58,7 +60,7 @@ function Menu() {
                             <IconButton
                                 color="inherit"
                                 aria-label="open drawer"
-                                onClick={handleDrawerOpen}
+                                onClick={menuOpen}
                                 edge="start"
                                 sx={{ mr: 2, ...(open && { display: 'none' }) }}
                             >
@@ -86,7 +88,7 @@ function Menu() {
                 >
                     
                     <DrawerHeader style={{  maxWidth: "100%", backgroundColor: 'black', color: "white", width: 300 }}>
-                        <IconButton onClick={handleDrawerClose} style={{ backgroundColor: 'white !important', color: "white" }}>
+                        <IconButton onClick={menuClose} style={{ backgroundColor: 'white !important', color: "white" }}>
                             {theme.direction === 'ltr' ? <ArrowBackIosNewIcon style={{ fontSize: "medium" }} /> : <MenuIcon />}
                         </IconButton>
                     </DrawerHeader>
@@ -131,7 +133,7 @@ function Menu() {
                     </List>
                 </Drawer>
             </MenuList>
-        </Paper>
+        </Box>
     )
 }
 
