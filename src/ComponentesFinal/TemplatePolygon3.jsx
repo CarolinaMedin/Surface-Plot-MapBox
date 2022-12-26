@@ -25,7 +25,7 @@ function TemplatePolygon3() {
             /* offset: [0, -15], */
             container: 'map',
             style: 'mapbox://styles/carito7/cl9ha2oat003h15nvo0o4sp1a',
-            center: [-69.261980827293442, -22.812123941135098],
+            center: [-70.68876, -33.46428],
             zoom: 13
         });
 
@@ -37,35 +37,35 @@ function TemplatePolygon3() {
                     "features": [
                         {
                             "type": "Feature",
-                            "properties": { "name": "Pila 1", "title": "Pila 2", "description": "Monitoreo un lindo proceso de Lixiviación" },
+                            "properties": { "name": "Poligono 1", "title": "Poligono 1", "description": "Monitoreo un lindo proceso de Lixiviación" },
                             "geometry": {
                                 "type": "Polygon",
                                 'coordinates': [
                                     [
-                                        [-69.261980827293442, -22.812123941135098],
-                                        [-69.258232023667375, -22.811295717078181],
-                                        [-69.251867775651036, -22.834180855493084],
-                                        [-69.255921714455965, -22.835444986948385],
-                                        [-69.256008895935651, -22.83553216842806],
-                                        [-69.256488394073855, -22.834485990671951],
-                                        [-69.256488394073111, -22.834485990671970]
+                                        [-70.67661, -33.47670],
+                                        [-70.67500, -33.45360],
+                                        [-70.67400, -33.45270],
+                                        [-70.66300, -33.45150],
+                                        [-70.66100, -33.45500],
+                                        [-70.66400, -33.47710]
                                     ]
                                 ]
                             }
                         },
                         {
                             'type': 'Feature',
-                            "properties": { "name": "Pila 2", "title": "Pila 2", "description": "Monitoreo un lindo proceso de Lixiviación pila 2" },
+                            "properties": { "name": "Poligono 2", "title": "Poligono 2", "description": "Monitoreo un lindo proceso de Lixiviación pila 2" },
                             'geometry': {
                                 'type': 'Polygon',
                                 'coordinates': [[
-                                    [-69.26937, -22.79850],
-                                    [-69.26665, -22.79819],
-                                    [-69.26547, -22.80195],
-                                    [-69.26445, -22.80492],
-                                    [-69.26682, -22.80586],
-                                    [-69.26801, -22.80242],
-                                    [-69.26971, -22.79772],
+                                    [-70.6561122, -33.4548222],
+                                    [-70.6460155, -33.4547009],
+                                    [-70.63501, -33.45370],
+                                    [-70.63595, -33.45360],
+                                    [-70.63490, -33.45255],
+                                    [-70.64211, -33.46050],
+                                    [-70.64311, -33.46150],
+                                    [-70.65111, -33.46010]
                                 ]]
                             }
                         },
@@ -130,25 +130,6 @@ function TemplatePolygon3() {
                 map.getCanvas().style.cursor = '';
             })
 
-            //segundo poligono
-            /* map.on('click', 'maine1', (e) => {
-                new mapboxgl.Popup()
-                    .setLngLat(e.lngLat)
-                    .setHTML(e.features[0].properties.name)
-                    .setHTML(e.features[0].properties.message)
-                    .setHTML(
-                        `<h3>${e.features[0].properties.title} hola hola</h3><p>${e.features[0].properties.description}</p>`
-                    )
-                    .addTo(map);
-            })
-
-            map.on('mouseenter', 'maine1', (e) => {
-                map.getCanvas().style.cursor = 'pointer';
-            })
-
-            map.on('mouseleave', 'maine1', (e) => {
-                map.getCanvas().style.cursor = '';
-            }) */
         })
     });
 
@@ -165,14 +146,13 @@ function TemplatePolygon3() {
             <h4 style={{ display: 'flex', justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
                 {' '}
                 <Badge>
-                    GeoJson Pilas Centinela 2
+                    GeoJson Poligono Estación Central
                 </Badge>
             </h4>
 
             <div style={{ display: 'flex', maxWidth: "100%", bgcolor: "black", color: "white" }}>
                 <Menu style={{
                     height: '620px',
-                    backgroundColor: "black !important"
                 }} />
 
                 {/* mapa poligono */}
@@ -182,17 +162,14 @@ function TemplatePolygon3() {
                     id="map" ref={node}
                     style={{
                         width: '80%',
-                        /* height: '620px', */
                         height: '80vh',
                         display: 'flex',
-                        /* fontSize: '100 vh',
-                        position: 'end', */
                         zIndex: 1,
                         justifyContent: 'flex-end',
                     }}
                     onClick={toggle}
                 >
-                    
+
                     <div style={{
                         width: '3%',
                         height: '5%',
@@ -294,7 +271,6 @@ function TemplatePolygon3() {
                     >
                         <ModalHeader
                             toggle={toggle}
-                            /* close={closeBtn} */
                             close={false}
                             style={{
                                 display: 'flex',
@@ -302,7 +278,7 @@ function TemplatePolygon3() {
                                 justifyContent: 'center',
                             }}
                         >
-                            Gráfico de Superficie Pilas
+                            Gráfico de Superficie
                         </ModalHeader>
                         <ModalBody>
                             {/* <MapboxTest/> */}

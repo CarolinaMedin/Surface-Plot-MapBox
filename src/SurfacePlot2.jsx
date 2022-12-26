@@ -4,7 +4,7 @@ import Plot from 'react-plotly.js';
 const SurfacePlot2 = () => {
 
   useEffect(() => {
-    document.title = 'Pilas'
+    document.title = 'SurfacePlot'
     });
   
 
